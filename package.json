@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-webpack-bundle-tracker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "vue-cli plugin for weback-bundle-tracker",
   "main": "index.js",
   "author": "Konstantin Alekseev",
@@ -8,5 +8,10 @@
   "private": false,
   "dependencies": {
     "webpack-bundle-tracker": "^0.3.0"
+  },
+  "repository" :
+  {
+    "type": "git",
+    "url": "https://github.com/kalekseev/vue-cli-plugin-webpack-bundle-tracker.git"
   }
 }
