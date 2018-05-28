@@ -5,6 +5,9 @@ module.exports = (api, options) => {
   api.registerCommand('devbuild', {
     description: 'build app and watch for changes (development mode by default)',
     usage: 'vue-cli-service devbuild',
+    options: {
+      '--filename': `specify filename option for BundleTracker plugin`,
+    }
   }, function devbuild (args) {
     info('Starting development server...')
 
@@ -16,7 +19,8 @@ module.exports = (api, options) => {
 
     // resolve webpack config
     const webpackConfig = api.resolveWebpackConfig()
-    webpackConfig.plugins.push(new BundleTracker({filename: './webpack-stats.json'}))
+    const filename = args.filename || './webpack-stats.json'
+    webpackConfig.plugins.push(new BundleTracker({ filename }))
 
     const entry = args._[0]
     if (entry) {
