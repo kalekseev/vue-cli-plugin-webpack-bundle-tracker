@@ -2,9 +2,9 @@ const BundleTracker = require('webpack-bundle-tracker');
 const { info } = require('@vue/cli-shared-utils')
 
 module.exports = (api, options) => {
-  api.registerCommand('runbuild', {
+  api.registerCommand('devbuild', {
     description: 'build app and watch for changes (development mode by default)',
-    usage: 'vue-cli-service runbuild',
+    usage: 'vue-cli-service devbuild',
   }, function devbuild (args) {
     info('Starting development server...')
 
