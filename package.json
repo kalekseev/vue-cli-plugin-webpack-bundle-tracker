@@ -1,0 +1,12 @@
+{
+  "name": "vue-cli-plugin-webpack-bundle-tracker",
+  "version": "0.0.2",
+  "description": "vue-cli plugin for weback-bundle-tracker",
+  "main": "index.js",
+  "author": "Konstantin Alekseev",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "webpack-bundle-tracker": "^0.3.0"
+  }
+}
