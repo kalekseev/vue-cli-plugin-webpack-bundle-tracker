@@ -8,6 +8,7 @@ module.exports = (api, options) => {
     options: {
       '--filename': `specify filename option for BundleTracker plugin`,
       '--watch': `watch and rebuild on change`,
+      '--publicpath': `configure publicPath (e.g. /static/)`,
     }
   }, function devbuild (args) {
     info('Starting development server...')
@@ -22,6 +23,9 @@ module.exports = (api, options) => {
     const webpackConfig = api.resolveWebpackConfig()
     const filename = args.filename || './webpack-stats.json'
     webpackConfig.plugins.push(new BundleTracker({ filename }))
+    if (args.publicpath) {
+      webpackConfig.output.publicPath = args.publicpath
+    }
 
     const entry = args._[0]
     if (entry) {
