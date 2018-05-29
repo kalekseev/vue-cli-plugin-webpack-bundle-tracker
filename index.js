@@ -7,6 +7,7 @@ module.exports = (api, options) => {
     usage: 'vue-cli-service devbuild',
     options: {
       '--filename': `specify filename option for BundleTracker plugin`,
+      '--watch': `watch and rebuild on change`,
     }
   }, function devbuild (args) {
     info('Starting development server...')
@@ -32,7 +33,11 @@ module.exports = (api, options) => {
     // create compiler
     const compiler = webpack(webpackConfig)
 
-    compiler.watch({}, () => {})
+    if (args.watch) {
+      compiler.watch({}, () => {})
+    } else {
+      compiler.run()
+    }
   })
 }
 

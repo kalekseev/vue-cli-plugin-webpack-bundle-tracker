@@ -24,5 +24,5 @@ To develop with django:
 
 ```
 django-admin runserver
-vue-cli-service devbuild
+vue-cli-service devbuild --watch
 ```
