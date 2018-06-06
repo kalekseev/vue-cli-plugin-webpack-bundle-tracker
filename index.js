@@ -35,8 +35,8 @@ module.exports = (api, options) => {
     const webpack = require('webpack')
     const WebpackDevServer = require('webpack-dev-server')
     const portfinder = require('portfinder')
-    const prepareURLs = require('../util/prepareURLs')
-    const prepareProxy = require('../util/prepareProxy')
+    const prepareURLs = require('@vue/cli-service/lib/util/prepareURLs')
+    const prepareProxy = require('@vue/cli-service/lib/util/prepareProxy')
     const launchEditorMiddleware = require('launch-editor-middleware')
 
     // load user devServer options
