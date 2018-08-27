@@ -12,16 +12,15 @@ module.exports = {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authorization",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
       "Access-Control-Allow-Credentials": "true"
     }
   },
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
-      config.output.publicPath = "/static/";
+      baseUrl = "/static/";
     } else {
-      config.output.publicPath = "http://localhost:8080/";
+      baseUrl = "http://localhost:8080/";
       config.plugins.push(new BundleTracker());
     }
   }
