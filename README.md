@@ -1,4 +1,8 @@
-# Vue cli plugin for weback-bundle-tracker
+# DEPRECATED!
+
+Since at least vue-cli version 3.0.5 and webpack-bundle-tracker version 0.4.2-beta
+you don't need extra plugins to have nice development environment, use
+example below to start:
 
 Example vue.config.js:
 
@@ -6,7 +10,7 @@ Example vue.config.js:
 const BundleTracker = require("webpack-bundle-tracker");
 
 module.exports = {
-  lintOnSave: false,
+  baseUrl: process.env.NODE_ENV === "production" ? '/static/' : "http://localhost:8080/",
   devServer: {
     publicPath: "http://localhost:8080/",
     headers: {
@@ -18,17 +22,14 @@ module.exports = {
     }
   },
   configureWebpack: config => {
-    if (process.env.NODE_ENV === "production") {
-      config.output.publicPath = "/static/";
-    } else {
-      config.output.publicPath = "http://localhost:8080/";
+    if (!process.env.NODE_ENV === "production") {
       config.plugins.push(new BundleTracker());
     }
   }
 };
 ```
 
-Standard django settings:
+Example django settings:
 
 ```
 STATIC_URL = '/static/'
@@ -39,5 +40,7 @@ To develop with django:
 
 ```
 django-admin runserver
-vue-cli-service start
-```
+vue-cli-service serve
+
+
+Your app will be available at django port eg.: http://localhost:8000/.
